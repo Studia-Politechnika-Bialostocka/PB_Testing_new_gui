@@ -1,5 +1,6 @@
-from sqlite import database
 import PySimpleGUI as sg
+
+from sqlite import database
 
 
 def move(window):

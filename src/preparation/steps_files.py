@@ -1,6 +1,6 @@
-import shutil
-import pathlib
 import os
+import pathlib
+import shutil
 
 
 def copy_common_steps():

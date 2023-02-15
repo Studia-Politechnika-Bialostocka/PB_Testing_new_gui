@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
-from shared_info.constants import ERROR_PNG, OK_PNG
 from object_collections_to_string import *
+
+from shared_info.constants import ERROR_PNG, OK_PNG
 
 
 def save_changed(window, todo_actions):

@@ -1,5 +1,6 @@
-from services.helper_methods import get_full_url
 import pytest
+
+from services.helper_methods import get_full_url
 
 
 @pytest.fixture

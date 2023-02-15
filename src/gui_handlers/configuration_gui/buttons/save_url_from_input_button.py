@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
-from sqlite import database
+
 from shared_info.constants import OK_PNG
+from sqlite import database
 
 
 def save(window):

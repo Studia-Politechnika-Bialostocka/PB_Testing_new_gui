@@ -1,5 +1,5 @@
-from configparser import ConfigParser
 import pickle
+from configparser import ConfigParser
 
 
 def save_configuration(window, values, event, todo_actions):

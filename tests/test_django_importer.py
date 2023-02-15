@@ -1,6 +1,7 @@
-from url_importer import django
-import sys
 import io
+import sys
+
+from url_importer import django
 
 
 def test_call():

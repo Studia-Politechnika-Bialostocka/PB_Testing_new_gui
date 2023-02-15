@@ -1,6 +1,7 @@
+import PySimpleGUI as sg
+
 from gui_handlers.step_creation.text_inputs import xpath_viewer_input
 from shared_info.constants import ERROR_PNG
-import PySimpleGUI as sg
 
 
 def pick_tag_in_tags(window, current_tags, last_used_html, todo_actions):

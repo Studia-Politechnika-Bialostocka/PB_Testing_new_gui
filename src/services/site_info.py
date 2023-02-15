@@ -1,9 +1,11 @@
-from bs4 import BeautifulSoup
-import mechanize
-from models.website_tag import WebsiteTag
-from models.saved_html import SavedHtml
-from services.helper_methods import get_full_url
 import urllib
+
+import mechanize
+from bs4 import BeautifulSoup
+
+from models.saved_html import SavedHtml
+from models.website_tag import WebsiteTag
+from services.helper_methods import get_full_url
 
 
 class SiteInfo:

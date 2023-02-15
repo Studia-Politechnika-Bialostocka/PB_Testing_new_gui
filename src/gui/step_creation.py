@@ -1,19 +1,19 @@
-import PySimpleGUI as sg
+import pickle
 import sys
 from configparser import ConfigParser
-import pickle
 
-from services.site_info import SiteInfo
-from layouts import step_creation
-from models.action_name import ActionName
+import PySimpleGUI as sg
+from object_collections_to_string import *
 
-from gui_handlers.step_creation.text_inputs import *
+from gui_handlers.step_creation.buttons import *
 from gui_handlers.step_creation.listboxes import *
 from gui_handlers.step_creation.selects import *
-from gui_handlers.step_creation.buttons import *
-from sqlite import database
+from gui_handlers.step_creation.text_inputs import *
+from layouts import step_creation
+from models.action_name import ActionName
+from services.site_info import SiteInfo
 from shared_info.constants import ERROR_PNG, OK_PNG
-from object_collections_to_string import *
+from sqlite import database
 
 urls_from_project = database.retrieve_urls("urls_and_attributes")
 input_text = ""

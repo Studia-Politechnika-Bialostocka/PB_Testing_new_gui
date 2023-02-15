@@ -1,6 +1,7 @@
+import PySimpleGUI as sg
+
 from shared_info.constants import ERROR_PNG, OK_PNG
 from sqlite import database
-import PySimpleGUI as sg
 
 
 def save(window):

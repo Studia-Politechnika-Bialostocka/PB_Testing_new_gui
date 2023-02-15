@@ -1,5 +1,6 @@
 import pyperclip
 import PySimpleGUI as sg
+
 from shared_info.constants import OK_PNG
 
 

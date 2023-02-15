@@ -1,5 +1,6 @@
-import PySimpleGUI as sg
 import os
+
+import PySimpleGUI as sg
 
 INFORMATION_ABOUT_UNIQUENESS = "To have your save buttons enabled, you need to have xpath of your element unique :D"
 

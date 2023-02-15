@@ -1,7 +1,9 @@
+import copy
+
+import PySimpleGUI as sg
+
 from models.website_tag import WebsiteTag
 from shared_info.constants import ERROR_PNG
-import PySimpleGUI as sg
-import copy
 
 
 def action_create(

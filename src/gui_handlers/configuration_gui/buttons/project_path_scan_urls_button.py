@@ -1,5 +1,5 @@
-from url_importer import django, rails
 from sqlite import database
+from url_importer import django, rails
 
 ide_environments = [django, rails]
 

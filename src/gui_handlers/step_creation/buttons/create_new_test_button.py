@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
-from services.object_collections_to_string import (
-    convert_collection_to_string_using_method,
-)
+
+from services.object_collections_to_string import \
+    convert_collection_to_string_using_method
 
 
 def create(window, todo_actions):

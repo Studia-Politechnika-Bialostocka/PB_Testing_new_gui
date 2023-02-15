@@ -1,11 +1,10 @@
-from services import actions_to_steps_transform
 import PySimpleGUI as sg
+
+from services import actions_to_steps_transform
+from services.save_steps_to_file import (check_if_step_is_already_defined,
+                                         delete_already_existing_step,
+                                         save_plan_to_file)
 from shared_info.constants import OK_PNG
-from services.save_steps_to_file import (
-    check_if_step_is_already_defined,
-    save_plan_to_file,
-    delete_already_existing_step,
-)
 
 
 def generate_plan(window, todo_actions, plan_is_an_action):

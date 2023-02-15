@@ -1,10 +1,12 @@
-import PySimpleGUI as sg
-from layouts import configuration_gui
-from sqlite import database
-from shared_info.constants import ERROR_PNG
 from configparser import ConfigParser
+
+import PySimpleGUI as sg
+
 from gui_handlers.configuration_gui.buttons import *
 from gui_handlers.configuration_gui.listboxes import *
+from layouts import configuration_gui
+from shared_info.constants import ERROR_PNG
+from sqlite import database
 
 
 def launch_configuration():

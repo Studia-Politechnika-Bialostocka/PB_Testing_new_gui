@@ -1,5 +1,6 @@
-from models.website_tag import WebsiteTag
 from collections import namedtuple
+
+from models.website_tag import WebsiteTag
 
 
 def test_website_tag():

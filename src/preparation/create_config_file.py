@@ -1,5 +1,5 @@
-from configparser import ConfigParser
 import pathlib
+from configparser import ConfigParser
 
 
 def create_config_file():

@@ -1,9 +1,9 @@
-from configparser import ConfigParser
 import pickle
-from services.object_collections_to_string import (
-    convert_collection_to_string_using_method,
-)
+from configparser import ConfigParser
+
 from gui_handlers.step_creation.text_inputs import login_inputs
+from services.object_collections_to_string import \
+    convert_collection_to_string_using_method
 
 
 def load_configuration(window, values, event, todo_actions):

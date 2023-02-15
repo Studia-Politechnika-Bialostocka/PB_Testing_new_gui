@@ -1,5 +1,6 @@
-from services import xpath_check
 import PySimpleGUI as sg
+
+from services import xpath_check
 from shared_info.constants import ERROR_PNG
 
 

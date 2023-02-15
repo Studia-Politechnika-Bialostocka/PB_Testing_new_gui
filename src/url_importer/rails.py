@@ -1,6 +1,7 @@
-from configparser import ConfigParser
-from sqlite.database import save_urls
 import subprocess
+from configparser import ConfigParser
+
+from sqlite.database import save_urls
 
 
 def import_urls():
