@@ -2,7 +2,7 @@ import lxml.html as PARSER
 
 
 def get_number_of_match(html, xpath):
-    if html is not None or html != '':
+    if html is not None or html != "":
         root = PARSER.fromstring(html)
 
         try:

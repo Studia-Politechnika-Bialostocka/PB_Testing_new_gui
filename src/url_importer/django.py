@@ -5,11 +5,11 @@ import subprocess
 
 def import_urls():
     config = ConfigParser()
-    config.read('resources_for_testing/config.ini')
-    project_path = config.get('main', 'project_path')
+    config.read("resources_for_testing/config.ini")
+    project_path = config.get("main", "project_path")
 
-    command = 'python3 manage.py show_urls'
-    project_name = 'Django'
+    command = "python3 manage.py show_urls"
+    project_name = "Django"
 
     if not _command_validity(cwd=project_path, command=command):
         print(f"{project_name} Project? No")
@@ -24,8 +24,14 @@ def import_urls():
 
 
 def _command_validity(cwd, command):
-    process = subprocess.Popen(command, shell=True, env={'PYTHONPATH': cwd}, cwd=cwd,
-                               stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(
+        command,
+        shell=True,
+        env={"PYTHONPATH": cwd},
+        cwd=cwd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
     process.wait(timeout=10)
 
     if process.returncode != 0:
@@ -35,11 +41,17 @@ def _command_validity(cwd, command):
 
 def _execute_command(command, cwd):
     urls = []
-    p = subprocess.Popen(command, shell=True, env={'PYTHONPATH': cwd}, cwd=cwd,
-                         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(
+        command,
+        shell=True,
+        env={"PYTHONPATH": cwd},
+        cwd=cwd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
     out, err = p.communicate()
 
-    for word in out.split('\n'.encode()):
+    for word in out.split("\n".encode()):
         if len(word) > 0:
             url = word.split()[0].decode()
             urls.append(url)

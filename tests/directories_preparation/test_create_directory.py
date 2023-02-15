@@ -18,6 +18,6 @@ def run_around_tests():
 
 
 def test_create_dir():
-    assert os.path.exists('cc') is False
-    create_dir(['cc'])
-    assert os.path.exists('cc') is True
+    assert os.path.exists("cc") is False
+    create_dir(["cc"])
+    assert os.path.exists("cc") is True
