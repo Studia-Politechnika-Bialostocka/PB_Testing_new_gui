@@ -1,8 +1,9 @@
 import PySimpleGUI as sg
 
 from services.add_action import action_create
-from services.object_collections_to_string import \
-    convert_collection_to_string_using_method
+from services.object_collections_to_string import (
+    convert_collection_to_string_using_method,
+)
 from shared_info.constants import ERROR_PNG
 
 

@@ -1,5 +1,6 @@
-from services.object_collections_to_string import \
-    convert_collection_to_string_using_variable
+from services.object_collections_to_string import (
+    convert_collection_to_string_using_variable,
+)
 
 
 def change_bdd_attribute(
