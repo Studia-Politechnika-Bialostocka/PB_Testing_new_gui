@@ -27,6 +27,8 @@ export default function StepCreator() {
   const [showHtml, setShowHtml] = useState(false);
   const [action, setAction] = useState("clicking button");
   const [tags, setTags] = useState([]);
+  const [tagFilter, setTagFilter] = useState("");
+  const [filteredTags, setFilteredTags] = useState([]);
 
   const scrapeSite = async () => {
     let data = await getPageHtml(siteUrl);
@@ -39,6 +41,21 @@ export default function StepCreator() {
     let tag_data = actions[action];
     let data = await getTags(tag_data.tag_type, tag_data.tag_attributes);
     setTags(data.tags);
+    setFilteredTags(data.tags);
+    setTagFilter("");
+  };
+
+  const filterTags = (filter) => {
+    setTagFilter(filter);
+    if (!filter) {
+      setFilteredTags(tags);
+      return;
+    }
+    let filtered = tags.filter(
+      (tag) =>
+        JSON.stringify(tag.attrs).includes(filter) || tag.html.includes(filter)
+    );
+    setFilteredTags(filtered);
   };
 
   return (
@@ -67,15 +84,25 @@ export default function StepCreator() {
           <textarea value={pageHtml} />
         </div>
       )}
-      {tags && 
-          tags.map(tag => (
-          <div>
+      {!!tags.length && (
+        <div>
+          Filter
+          <input
+            type="text"
+            value={tagFilter}
+            onChange={(e) => filterTags(e.target.value)}
+          />
+          {filteredTags.map((tag) => (
+            <div>
               <div>tag type: {tag.type}</div>
               <div>attrs: {JSON.stringify(tag.attrs)}</div>
-              <div className="text-container"><textarea value={tag.html}/></div>
-          </div>
-          ))
-      }
+              <div className="text-container">
+                <textarea value={tag.html} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
