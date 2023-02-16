@@ -25,7 +25,6 @@ export default function StepCreator() {
   const [siteUrl, setSiteUrl] = useState("");
   const [pageHtml, setPageHtml] = useState("");
   const [showHtml, setShowHtml] = useState(false);
-  const [action, setAction] = useState("clicking button");
   const [tags, setTags] = useState([]);
   const [tagFilter, setTagFilter] = useState("");
   const [filteredTags, setFilteredTags] = useState([]);
@@ -37,8 +36,8 @@ export default function StepCreator() {
     setPageHtml(text);
   };
 
-  const displayTags = async () => {
-    let tag_data = actions[action];
+  const displayTags = async (newAction) => {
+    let tag_data = actions[newAction];
     let data = await getTags(tag_data.tag_type, tag_data.tag_attributes);
     setTags(data.tags);
     setFilteredTags(data.tags);
@@ -70,13 +69,16 @@ export default function StepCreator() {
           <select
             name="actions"
             id="actions"
-            onChange={(e) => setAction(e.target.value)}
+            defaultValue="0"
+            onChange={(e) => displayTags(e.target.value)}
           >
+            <option value="0" disabled>
+              --Select Action--
+            </option>
             {Object.keys(actions).map((action) => (
               <option value={action}>{action}</option>
             ))}
           </select>
-          <button onClick={() => displayTags()}>Get Tags</button>
         </div>
       )}
       {pageHtml && showHtml && (
