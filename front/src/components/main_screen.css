@@ -1,0 +1,31 @@
+#choice-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link-choice {
+    /* border: 2px solid #696969; */
+    width: 20rem;
+    height: 10rem;
+    transform: skew(-10deg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--nord1);
+    color: var(--text-elevated);
+
+    box-shadow: 0 10px 16px 0 var(--shadow),0 6px 20px 0 var(--shadow);
+    font-weight: 1000;
+    font-size: 1.3rem;
+
+    transition: 0.2s;
+    transition-properties: height;
+}
+
+.link-choice:hover {
+    height: 13rem;
+}
