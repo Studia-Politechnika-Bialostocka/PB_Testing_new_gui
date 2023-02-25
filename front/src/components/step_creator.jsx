@@ -23,6 +23,12 @@ const actions = {
   },
 };
 
+const INPUT_STATUS_BORDER_CLASS = {
+  0: "",
+  1: "input-success",
+  2: "input-error",
+};
+
 const SVG_WIDTH = "200px";
 
 export default function StepCreator() {
@@ -32,6 +38,8 @@ export default function StepCreator() {
   const [tags, setTags] = useState([]);
   const [tagFilter, setTagFilter] = useState("");
   const [filteredTags, setFilteredTags] = useState([]);
+  const [scrapeStatus, setScrapeStatus] = useState(0);
+  const [filterStatus, setFilterStatus] = useState(0);
 
   useEffect(() => {
     hljs.highlightAll();
@@ -40,6 +48,9 @@ export default function StepCreator() {
   const scrapeSite = async () => {
     let data = await getPageHtml(siteUrl);
     let text = data["html"] || data["error"];
+
+    if (data["html"]) setScrapeStatus(1);
+    else if (data["error"]) setScrapeStatus(2);
 
     setPageHtml(text);
   };
@@ -53,10 +64,17 @@ export default function StepCreator() {
     setTagFilter("");
   };
 
+  const filterInputClass = (filter, filtered) => {
+    if (!filter.length) return 0;
+    if (!filtered.length) return 2;
+    return 1;
+  };
+
   const filterTags = (filter) => {
     setTagFilter(filter);
     if (!filter) {
       setFilteredTags(tags);
+      setFilterStatus(0);
       return;
     }
     let filtered = tags.filter(
@@ -64,6 +82,7 @@ export default function StepCreator() {
         JSON.stringify(tag.attrs).includes(filter) || tag.html.includes(filter)
     );
     setFilteredTags(filtered);
+    setFilterStatus(filterInputClass(filter, filtered));
   };
 
   const syntaxHighlight = (code) => {
@@ -93,9 +112,16 @@ export default function StepCreator() {
     return el.innerHTML;
   };
 
+  useEffect(() => {}, [tagFilter]);
+
   return (
     <div>
-      <input type="text" onChange={(e) => setSiteUrl(e.target.value)} />
+      <input
+        id="scrape-url"
+        className={INPUT_STATUS_BORDER_CLASS[scrapeStatus]}
+        type="text"
+        onChange={(e) => setSiteUrl(e.target.value)}
+      />
       <button onClick={scrapeSite}>Scrape</button>
       {pageHtml && (
         <button onClick={() => setShowHtml(!showHtml)}>Toggle Html</button>
@@ -124,9 +150,10 @@ export default function StepCreator() {
       )}
       {!!tags.length && (
         <div>
-          Filter
           <input
+            className={INPUT_STATUS_BORDER_CLASS[filterStatus]}
             type="text"
+            placeholder="Filter"
             value={tagFilter}
             onChange={(e) => filterTags(e.target.value)}
           />

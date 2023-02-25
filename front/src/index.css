@@ -7,9 +7,16 @@
   --nord0: #2e3440;
   --nord1: #3b4252;
   --nord2: #434c5e;
+  --nord3: #4c566a;
+  --primary: #88c0d0;
+  --secondary: #8fbcbb;
   --shadow: #24293377;
+  --text-muted: #d8dee9;
   --text: #e5e9f0;
   --text-elevated: #eceff4;
+
+  --success: #a3be8c;
+  --error: #bf616a;
 
   color-scheme: light dark;
   color: var(--text);
@@ -58,6 +65,24 @@ button {
 }
 button:hover {
   background-color: var(--nord2);
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid var(--text);
+  transform: skew(-10deg);
+  padding: 0.7em 0.5em;
+  font-size: 1em;
+  background-color: var(--shadow);
+}
+
+::placeholder {
+  color: var(--text-muted);
+}
+
+textare:focus,
+input:focus {
+  outline: none;
 }
 
 ::selection {

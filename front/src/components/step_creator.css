@@ -1,3 +1,15 @@
+#scrape-url {
+    width: 30vw;
+}
+
+.input-success {
+    border-color: var(--success);
+}
+
+.input-error {
+    border-color: var(--error);
+}
+
 .text-container {
     width: 80vw;
     height: 40vh;
