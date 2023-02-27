@@ -68,14 +68,22 @@ button:hover {
 }
 
 input {
-  /* box-sizing: border-box; */
   border: none;
-  /* border-bottom: 2px solid var(--text); */
   box-shadow: inset 0 0 0 2px var(--text);
   transform: skew(-10deg);
   padding: 0.7em 0.5em;
   font-size: 1em;
   background-color: var(--shadow);
+}
+
+.form-input {
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid var(--text);
+  transform: skew(-10deg);
+  padding: 0.7em 0.5em;
+  font-size: 1em;
+  background-color: var(--nord0);
 }
 
 ::placeholder {

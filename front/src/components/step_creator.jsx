@@ -151,7 +151,7 @@ export default function StepCreator() {
       {!!tags.length && (
         <div>
           <input
-            className={INPUT_STATUS_BORDER_CLASS[filterStatus]}
+            className={"form-input " + INPUT_STATUS_BORDER_CLASS[filterStatus]}
             type="text"
             placeholder="Filter"
             value={tagFilter}
