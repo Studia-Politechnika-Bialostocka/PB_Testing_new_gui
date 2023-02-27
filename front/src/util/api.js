@@ -26,13 +26,11 @@ async function genericGetRequest(route, params) {
 }
 
 export async function postFeature(feature_data) {
-  return axios({
-    baseURL: BASE_URL,
-    url: "/features",
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: { data: feature_data },
-  }).then((response) => {
-    return response.data;
-  });
+  return axios
+    .post(BASE_URL + "/features", feature_data, {
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((response) => {
+      return response.data;
+    });
 }

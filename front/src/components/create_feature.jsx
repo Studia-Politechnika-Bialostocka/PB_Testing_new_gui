@@ -49,7 +49,13 @@ const CreateFeature = () => {
 
   return (
     <div>
-      <input type="text" className={"form-input"} placeholder="Feature Name" />
+      <input
+        type="text"
+        className={"form-input"}
+        placeholder="Feature Name"
+        value={featureName}
+        onChange={(e) => setFeatureName(e.target.value)}
+      />
       <button onClick={() => addScenario()}>Add Scenario</button>
       {scenarios.map((scenario, scenario_idx) => (
         <div>
