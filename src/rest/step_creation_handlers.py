@@ -8,7 +8,8 @@ from services.site_info import SiteInfo
 
 step_creation = Blueprint("step_creation", __name__)
 
-site_info = SiteInfo(for_flask=True)
+# site_info = SiteInfo(for_flask=True)
+site_info = SiteInfo()
 
 
 @step_creation.route("/scrape/page_html")
@@ -38,12 +39,12 @@ def html_tags():
         return {"error": "Scrape a valid site first"}
 
     return {
-        "tags": [
-            {
-                "type": tag.type_of_tag,
-                "attrs": tag.attrs,
-                "html": str(tag.element_html.prettify()),
-            }
-            for tag in tags
-        ]
+        # "tags": [
+        #     {
+        #         "type": tag.type_of_tag,
+        #         "attrs": tag.attrs,
+        #         "html": str(tag.element_html.prettify()),
+        #     }
+        #     for tag in tags
+        # ]
     }
