@@ -14,7 +14,12 @@ export async function getTags(tag_type = null, tag_attributes = null) {
   return await genericGetRequest("/scrape/tags", params);
 }
 
-async function genericGetRequest(route, params) {
+export async function getFeatureData(feature_name) {
+  feature_name = feature_name.replace(" ", "-");
+  return await genericGetRequest(`/features/${feature_name}`);
+}
+
+async function genericGetRequest(route, params = {}) {
   return axios({
     baseURL: BASE_URL,
     url: route,

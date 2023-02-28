@@ -35,6 +35,7 @@ function App() {
         }
       />
       <Route path="/feature-files/create" element={<CreateFeature />} />
+      <Route path="/feature-files/edit/:feature_name" element={<CreateFeature />} />
       <Route path="/step-creator" element={<StepCreator />} />
     </Routes>
   );

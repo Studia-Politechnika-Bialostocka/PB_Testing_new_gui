@@ -1,11 +1,25 @@
-import { useState } from "react";
-import { postFeature } from "../util/api";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getFeatureData, postFeature } from "../util/api";
 
 // const STEP_TYPES = {0: "Given", 1: "When", 2: "Then"}
 
 const CreateFeature = () => {
   const [featureName, setFeatureName] = useState("");
   const [scenarios, setScenarios] = useState([]);
+  const { feature_name } = useParams();
+
+  useEffect(() => {
+    if (!!feature_name) {
+      const getFeature = async () => {
+        let response = await getFeatureData(feature_name);
+        let feature = response.feature_data;
+        setFeatureName(feature.name);
+        setScenarios(feature.scenarios);
+      };
+      getFeature();
+    }
+  }, []);
 
   const saveFeature = async () => {
     let feature_data = { name: featureName, scenarios: scenarios };
@@ -83,6 +97,7 @@ const CreateFeature = () => {
                 type="text"
                 className={"form-input"}
                 placeholder="Step"
+                value={step.name}
                 onChange={(e) =>
                   updateStepName(e.target.value, scenario_idx, step_idx)
                 }
