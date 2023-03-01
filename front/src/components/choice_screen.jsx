@@ -6,7 +6,7 @@ export default function ChoiceScreen(props) {
   return (
     <div id="choice-container">
       {Object.keys(choices).map((choice) => (
-        <Link class="link-choice" to={choices[choice]}>
+        <Link className="link-choice" to={choices[choice]}>
           {choice}
         </Link>
       ))}

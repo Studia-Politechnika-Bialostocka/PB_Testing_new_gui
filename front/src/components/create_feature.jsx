@@ -24,7 +24,7 @@ const CreateFeature = () => {
     let feature_data = { name: featureName, scenarios: scenarios };
     if (!!featureName) {
       await updateFeature(feature_data);
-      return
+      return;
     }
     await postFeature(feature_data);
   };
@@ -71,6 +71,7 @@ const CreateFeature = () => {
         placeholder="Feature Name"
         value={featureName}
         onChange={(e) => setFeatureName(e.target.value)}
+        disabled={!!featureName}
       />
       <button onClick={() => addScenario()}>Add Scenario</button>
       {scenarios.map((scenario, scenario_idx) => (

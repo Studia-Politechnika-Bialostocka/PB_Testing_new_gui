@@ -44,7 +44,7 @@ export async function postFeature(feature_data) {
     });
 }
 
-export async function postFeature(feature_data) {
+export async function updateFeature(feature_data) {
   return axios
     .put(BASE_URL + "/features", feature_data, {
       headers: { "Content-Type": "application/json" },

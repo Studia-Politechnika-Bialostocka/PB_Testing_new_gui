@@ -18,7 +18,7 @@ const FeatureList = () => {
     <div id="fl-container">
       {features.map((feature) => (
         <Link
-          class="fl-choice"
+          className="fl-choice"
           to={`/feature-files/edit/${feature.replace("_", "-")}`}
         >
           {feature}

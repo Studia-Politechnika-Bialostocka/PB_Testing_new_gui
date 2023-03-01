@@ -12,6 +12,13 @@ def create_feature():
     return {}
 
 
+@features.route("/features", methods=["PUT"])
+def update_feature():
+    feature_data = request.get_json()
+    FeatureService().update_feature(feature_data)
+    return {}
+
+
 @features.route("/features/<string:name>", methods=["GET"])
 def get_feature(name: str):
     feature_name = name.replace("-", " ")

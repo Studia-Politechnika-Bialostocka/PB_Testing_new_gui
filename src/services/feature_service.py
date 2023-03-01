@@ -10,6 +10,14 @@ class FeatureService:
         file = file_path.touch(exist_ok=False)
         file_path.write_text(self.__feature_from_dict(feature_data))
 
+    def update_feature(self, feature_data: dict):
+        file_path = self.__get_file_path(feature_data["name"])
+        if not file_path.exists():
+            raise NonExistentFeatureError(
+                "Cannot edit feature file which doesn't exist yet."
+            )
+        file_path.write_text(self.__feature_from_dict(feature_data))
+
     def get_feature(self, feature_name: str) -> dict:
         file_path = self.__get_file_path(feature_name)
         return self.__feature_to_dict(file_path)
@@ -62,3 +70,7 @@ class FeatureService:
 
     def __get_split_string(self, string: str, idx: int = 1, sep: str = " "):
         return string.strip().split(sep)[idx].strip()
+
+
+class NonExistentFeatureError(Exception):
+    pass
