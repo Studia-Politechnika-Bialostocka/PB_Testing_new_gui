@@ -9,14 +9,17 @@ from services.helper_methods import get_full_url
 
 
 class SiteInfo:
-    def __init__(self):
+    def __init__(self, for_flask=False):
         self.saved_htmls_anonymous = {}
         self.saved_htmls_logged_in = {}
         self.last_used_html = ""
+        self.last_site = ""
+        self.for_flask = for_flask
 
     def get_saved_site_anonymous(self, site):
         if site in self.saved_htmls_anonymous:
             self.last_used_html = self.saved_htmls_anonymous[site]
+            self.last_site = site
 
             return self.last_used_html, False
 
@@ -24,11 +27,19 @@ class SiteInfo:
         try:
             ad = browser.open(site)
         except mechanize.HTTPError:
+            if self.for_flask:
+                raise ConnectionError(
+                    "Could not connect to this url. Probably wrong endpoint or server is not up"
+                )
             return (
                 "Could not connect to this url. Probably wrong endpoint or server is not up",
                 True,
             )
         except mechanize._mechanize.BrowserStateError:
+            if self.for_flask:
+                raise ConnectionError(
+                    "Could not connect to this url. Check if domain name checks outs :D"
+                )
             return (
                 "Could not connect to this url. Check if domain name checks outs :D",
                 True,
@@ -38,7 +49,10 @@ class SiteInfo:
         soup = BeautifulSoup(response, features="lxml")
         self.saved_htmls_anonymous[site] = soup.prettify()
         self.last_used_html = self.saved_htmls_anonymous[site]
+        self.last_site = site
 
+        if self.for_flask:
+            return self.last_used_html, False
         return response, False
 
     def get_saved_site_logged_in(
