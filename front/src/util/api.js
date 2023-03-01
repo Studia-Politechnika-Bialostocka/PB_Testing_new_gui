@@ -19,6 +19,10 @@ export async function getFeatureData(feature_name) {
   return await genericGetRequest(`/features/${feature_name}`);
 }
 
+export async function getFeatureList() {
+  return await genericGetRequest("/features");
+}
+
 async function genericGetRequest(route, params = {}) {
   return axios({
     baseURL: BASE_URL,
@@ -33,6 +37,16 @@ async function genericGetRequest(route, params = {}) {
 export async function postFeature(feature_data) {
   return axios
     .post(BASE_URL + "/features", feature_data, {
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((response) => {
+      return response.data;
+    });
+}
+
+export async function postFeature(feature_data) {
+  return axios
+    .put(BASE_URL + "/features", feature_data, {
       headers: { "Content-Type": "application/json" },
     })
     .then((response) => {

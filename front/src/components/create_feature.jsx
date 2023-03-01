@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getFeatureData, postFeature } from "../util/api";
-
-// const STEP_TYPES = {0: "Given", 1: "When", 2: "Then"}
+import { getFeatureData, updateFeature, postFeature } from "../util/api";
 
 const CreateFeature = () => {
   const [featureName, setFeatureName] = useState("");
@@ -13,6 +11,7 @@ const CreateFeature = () => {
     if (!!feature_name) {
       const getFeature = async () => {
         let response = await getFeatureData(feature_name);
+        console.log(response);
         let feature = response.feature_data;
         setFeatureName(feature.name);
         setScenarios(feature.scenarios);
@@ -23,8 +22,11 @@ const CreateFeature = () => {
 
   const saveFeature = async () => {
     let feature_data = { name: featureName, scenarios: scenarios };
-    let response = await postFeature(feature_data);
-    console.log(response);
+    if (!!featureName) {
+      await updateFeature(feature_data);
+      return
+    }
+    await postFeature(feature_data);
   };
 
   const addScenario = () => {
