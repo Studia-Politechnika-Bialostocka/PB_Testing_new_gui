@@ -15,7 +15,7 @@ export async function getTags(tag_type = null, tag_attributes = null) {
 }
 
 export async function getFeatureData(feature_name) {
-  feature_name = feature_name.replace(" ", "-");
+  feature_name = feature_name.replaceAll(" ", "-");
   return await genericGetRequest(`/features/${feature_name}`);
 }
 

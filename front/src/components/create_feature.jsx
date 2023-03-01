@@ -11,9 +11,8 @@ const CreateFeature = () => {
     if (!!feature_name) {
       const getFeature = async () => {
         let response = await getFeatureData(feature_name);
-        console.log(response);
         let feature = response.feature_data;
-        setFeatureName(feature.name);
+        setFeatureName(feature.name.replaceAll('_', ' '));
         setScenarios(feature.scenarios);
       };
       getFeature();
