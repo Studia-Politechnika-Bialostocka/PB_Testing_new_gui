@@ -1,0 +1,50 @@
+#scrape-url {
+    width: 30vw;
+}
+
+.input-success {
+    border-color: var(--success) !important;
+    box-shadow: inset 0 0 0 2px var(--success);
+}
+
+.input-error {
+    border-color: var(--error) !important;
+    box-shadow: inset 0 0 0 2px var(--error);
+}
+
+.text-container {
+    width: 80vw;
+    height: 40vh;
+}
+
+.text-container > textarea {
+    width: 100%;
+    height: 100%;
+}
+
+.preview-container {
+    display: flex;
+}
+
+.tag-container {
+    width: 37rem;
+    height: 40rem;
+    box-shadow: 0 10px 16px 0 var(--shadow),0 6px 20px 0 var(--shadow);
+    padding: 2rem;
+    margin: 3rem;
+}
+
+.tag-preview {
+    height: 80%;
+    overflow: scroll;
+    /* box-shadow: inset 0 10px 16px 0 var(--shadow),0 6px 20px 0 var(--shadow); */
+}
+
+.tag-preview > pre {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.language-html {
+    overflow-x: visible !important;
+}

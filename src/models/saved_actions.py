@@ -4,4 +4,4 @@ class SavedActions:
         self.action_name = action_name
 
     def information_for_saved_actions(self):
-        return f'{self.bdd_attribute}: {self.action_name}'
+        return f"{self.bdd_attribute}: {self.action_name}"

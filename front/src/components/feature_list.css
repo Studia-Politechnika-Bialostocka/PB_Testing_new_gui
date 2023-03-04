@@ -1,0 +1,31 @@
+#fl-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.fl-choice {
+    width: 25rem;
+    height: 5rem;
+    transform: skew(-10deg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--nord1);
+    color: var(--text-elevated);
+
+    box-shadow: 0 10px 16px 0 var(--shadow),0 6px 20px 0 var(--shadow);
+    font-weight: 1000;
+    font-size: 1.3rem;
+
+    transition: 0.2s;
+    transition-properties: background-color, color;
+}
+
+.fl-choice:hover {
+    background-color: var(--nord2)
+}

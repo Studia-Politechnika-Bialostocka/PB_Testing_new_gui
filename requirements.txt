@@ -64,7 +64,6 @@ rich==12.6.0
 runs==1.1.0
 SecretStorage==3.3.3
 selenium==4.6.0
-simple-editor==0.4.3
 six==1.16.0
 sniffio==1.3.0
 sortedcontainers==2.4.0

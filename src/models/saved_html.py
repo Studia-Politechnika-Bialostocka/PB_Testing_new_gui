@@ -6,4 +6,6 @@ class SavedHtml:
         self.html = html
 
     def to_string(self):
-        return f'{self.link} with username:{self.username} and password: {self.password}'
+        return (
+            f"{self.link} with username:{self.username} and password: {self.password}"
+        )

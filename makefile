@@ -10,3 +10,5 @@ push_prod:
 	python3 -m twine upload --repository pypi dist/*
 pycache:
 	git clean -df *pycache*
+start_rest:
+	./bin/flask_app

@@ -1,0 +1,9 @@
+.input-success {
+    border-color: var(--success) !important;
+    box-shadow: inset 0 0 0 2px var(--success);
+}
+
+.input-error {
+    border-color: var(--error) !important;
+    box-shadow: inset 0 0 0 2px var(--error);
+}
